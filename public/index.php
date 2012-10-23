@@ -1,6 +1,6 @@
 <?php
 //hola soy rodolfo
-//hola soy rodrigo
+//hola soy rodrigo, esta es una prueba
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/common/lib/Yii/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
