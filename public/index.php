@@ -1,5 +1,5 @@
 <?php
-//hola soy rodolfo
+//hola soy rodolfo, en netbeans
 //hola soy rodrigo, esta es una prueba
 //Hola soy francisco
 
