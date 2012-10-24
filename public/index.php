@@ -2,6 +2,7 @@
 //hola soy rodolfo desde en netbeans
 //hola soy rodrigo, esta es una prueba
 //Hola soy francisco
+//Hola soy Felipe
 
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/common/lib/Yii/yii.php';
