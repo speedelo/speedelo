@@ -1,7 +1,7 @@
 <?php
-	Yii::app()->clientscript
+	/*Yii::app()->clientscript
 		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap.css' )
-		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap-responsive.css' )
+		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap-responsive.css' )*/
 ?>
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="nl"><![endif]-->
@@ -11,12 +11,7 @@
 <!--[if !IE]><!--><html class="no-js" lang="nl"><!--<![endif]-->
 	<head>
 
-		<meta charset="utf-8">
-		<title><?=h($this->pageTitle)?></title>
-		<meta name="description" content="Page description here">
-		<meta name="author" content="Speedelo">
-		<meta name="viewport" content="width=device-width">
-        
+		
         <!-- FAV AND TOUCH ICONS -->
             <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
             <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo Yii::app()->request->baseUrl; ?>images/apple-touch-icon-144-precomposed.png" />
@@ -91,72 +86,20 @@
             
             
             <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/config.js"></script>
-            <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/modernizr-2.6.2.min.js"></script>
+           
             <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/jquery-1.8.1.min.js"></script>
             <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/bootstrap/js/bootstrap.min.js"></script>
-            <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/respond.min.js"></script>
-                
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/touch-punch/jquery.ui.touch-punch.min.js"></script>
-            
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/jquery.cookie.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/jquery.mousewheel.js"></script>
-        
-            <!-- Load plugins -->
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/qtip/jquery.qtip.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/flot/jquery.flot.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/flot/jquery.flot.grow.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/flot/jquery.flot.pie.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/flot/jquery.flot.resize.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/flot/jquery.flot.tooltip_0.4.4.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/flot/jquery.flot.orderBars.js"></script>
-        
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/sparkline/jquery.sparkline.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/knob/jquery.knob.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/fullcalendar/fullcalendar.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/prettify/prettify.js"></script>
-        
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/watermark/jquery.watermark.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/elastic/jquery.elastic.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/inputlimiter/jquery.inputlimiter.1.3.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/maskedinput/jquery.maskedinput-1.3.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/ibutton/jquery.ibutton.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/uniform/jquery.uniform.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/stepper/ui.stepper.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/color-picker/colorpicker.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/timeentry/jquery.timeentry.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/select/select2.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/dualselect/jquery.dualListBox-1.3.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/tiny_mce/jquery.tinymce.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/validate/jquery.validate.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/search/tipuesearch_set.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/search/tipuesearch_data.js"></script><!-- JSON for searched results -->
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/search/tipuesearch.js"></script>
-        
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/animated-progress-bar/jquery.progressbar.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/pnotify/jquery.pnotify.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/lazy-load/jquery.lazyload.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/jpages/jPages.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/pretty-photo/jquery.prettyPhoto.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/smartWizzard/jquery.smartWizard-2.0.min.js"></script>
-        
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/ios-fix/ios-orientationchange-fix.js"></script>
-        
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/dataTables/jquery.dataTables.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/elfinder/elfinder.min.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/plupload/plupload.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/plupload/plupload.html4.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/plupload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/totop/jquery.ui.totop.min.js"></script> 
-        
-            <!-- Init plugins -->
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/statistic.js"></script><!-- Control graphs ( chart, pies and etc) -->
-        
-            
+      
+    
             <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/main.js"></script>
                 
-            <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/script.js"></script>
                 
-                
+                <meta charset="utf-8">
+		<title><?=h($this->pageTitle)?></title>
+		<meta name="description" content="Page description here">
+		<meta name="author" content="Speedelo">
+		<meta name="viewport" content="width=device-width">
+        
 
 	</head>
 
@@ -187,21 +130,35 @@
 					<div class="navbar pull-right header-nav">
 						<ul class="nav">
 							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">account</a>
+							<? $logged_in = !Yii::app()->user->isGuest; ?>
+							<? if(!$logged_in) { ?>
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#"><?=Yii::t('user', 'login')?></a>
 								<ul class="dropdown-menu">
 									<li>
 										<div class="dropdown-content">
 											<br>
-											<form>
-												<input type="text" class="input-medium" placeholder="Username"><br>
-												<input type="password" class="input-medium" placeholder="Password"><br>
-												<button class="btn">reset</button>
-												<button class="btn btn-primary">login</button>
-											</form> 
-											<br>
+                                                                                            <?php $this->widget('application.modules.user.components.LoginWidget'); ?>
+                                                                                        <br>
 										</div>
 									</li>
 								</ul>
+							
+							<? } else { ?>
+								
+   								<a class="dropdown-toggle" data-toggle="dropdown" href="#"><?=Yii::t('user', 'account')?></a>
+                                                                <ul class="dropdown-menu">
+                                                                        <li>
+                                                                              <div class="dropdown-content">
+											<br>
+                                                                                            <?php $this->widget('application.modules.user.components.YumUserMenu'); ?>
+                                                                                        <br>
+										</div>
+                                                                        </li>
+                                                                </ul>
+								
+
+							<? } ?>
+							
 							</li>
 							<li><a href="#">orders</a></li>
 							<li><a href="#">customer service</a></li>
@@ -317,9 +274,6 @@
 				</div>
 			</div>
 
-					<?php //if (!Yii::app()->user->isGuest) : ?>
-					<!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-					<?php //endif; ?>
 				
 		<?php echo $content ?>
 	

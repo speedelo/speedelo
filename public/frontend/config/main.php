@@ -36,7 +36,7 @@ return CMap::mergeArray(
 		// @see http://www.yiiframework.com/doc/api/1.1/CModule#preload-detail
 		'preload' => array('log'),
 		// @see http://www.yiiframework.com/doc/api/1.1/CApplication#language-detail
-		'language' => 'en',
+		'language' => 'es',
 		// uncomment if a theme is used
 		/*'theme' => '',*/
 		// setup import paths aliases
@@ -45,6 +45,7 @@ return CMap::mergeArray(
 			'common.components.*',
 			'common.extensions.*',
 			'common.models.*',
+                        //'common.modules.*',
 			// uncomment if behaviors are required
 			// you can also import a specific one
 			/* 'common.extensions.behaviors.*', */
@@ -52,12 +53,66 @@ return CMap::mergeArray(
 			/* 'common.extensions.validators.*', */
 			'application.components.*',
 			'application.controllers.*',
-			'application.models.*'
+			'application.models.*',
+                        //'application.modules.*',
+                        'application.modules.user.models.*',
+			
 		),
+                //'modulePath' => $params['local.path'].'common/modules/',
+            
 		/* uncomment and set if required */
 		// @see http://www.yiiframework.com/doc/api/1.1/CModule#setModules-detail
 		/* we need to uncomment the following to make use of "api" REST controllers */
-		/* 'modules' => array("api"), */
+		'modules' => array(
+			"api",
+			'user' => array(
+                            //'class' => 'common.modules.user.UserModule',
+                            //'path' => $params['local.path'].'common/modules/user',
+                            'debug' => false,
+                            'userTable' => 'user',
+                            'translationTable' => 'translation',
+                        ),
+                        'usergroup' => array(
+                            //'class' => 'common.modules.usergroup.UsergroupModule',
+                            //'path' => $params['local.path'].'common/modules/usergroup',
+                            'usergroupTable' => 'usergroup',
+                            'usergroupMessageTable' => 'user_group_message',
+                        ),
+                        'membership' => array(
+                            //'class' => 'common.modules.memebership.MembershipModule',
+                            //'path' => $params['local.path'].'common/modules/memebers',
+                            'membershipTable' => 'membership',
+                            'paymentTable' => 'payment',
+                        ),
+                        'friendship' => array(
+                            //'class' => 'common.modules.friendship.FriendshipModule',
+                            //'basePath' => $params['local.path'].'common/modules/friendship',
+                            'friendshipTable' => 'friendship',
+                        ),
+                        'profile' => array(
+                            //'class' => 'common.modules.profile.ProfileModel',
+                            //'path' => $params['local.path'].'common/modules/profile',
+                            'privacySettingTable' => 'privacysetting',
+                            'profileFieldTable' => 'profile_field',
+                            'profileTable' => 'profile',
+                            'profileCommentTable' => 'profile_comment',
+                            'profileVisitTable' => 'profile_visit',
+                        ),
+                        'role' => array(
+                            //'class' => 'common.modules.role.RoleModel',
+                            //'path' => $params['local.path'].'common/modules/role',
+                            'roleTable' => 'role',
+                            'userRoleTable' => 'user_role',
+                            'actionTable' => 'action',
+                            'permissionTable' => 'permission',
+                        ),
+                        'message' => array(
+                            //'class' => 'common.modules.message.MessageModule',
+                            //'path' => $params['local.path'].'common/modules/message',
+                            'messageTable' => 'message',
+                        ),
+
+		),
 		'components' => array(
 			'errorHandler' => array(
 				// @see http://www.yiiframework.com/doc/api/1.1/CErrorHandler#errorAction-detail
@@ -79,7 +134,23 @@ return CMap::mergeArray(
 			),
 			'mailer' => array(
 				'class' => 'application.extensions.mailer.EMailer',
-			)
+			),
+			'user'=>array(
+      			      'class' => 'application.modules.user.components.YumWebUser',
+      			      'allowAutoLogin'=>true,
+			      'loginUrl' => array('//user/user/login'),
+    			),
+                        'cache'=>array(
+                            /* para utilizar cache de archivo es necesario que /public/frontend/runtime exista y sea escribible */
+                            'class' => 'system.caching.CFileCache',
+                            /* TODO: en producción esto debería configurarse para usar cmemcache, por ahora utilizaremos cache de archivo */
+                            /*'class'=>'system.caching.CMemCache',
+                            'servers'=>array(
+                                array('host'=>'server1', 'port'=>11211, 'weight'=>60),
+                                array('host'=>'server2', 'port'=>11211, 'weight'=>40),
+                            ),*/
+                            
+                        ),
 
 		),
 		/* make sure you have your cache set correctly before uncommenting */

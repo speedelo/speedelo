@@ -23,6 +23,7 @@
  */
 return array(
 	'env.code' => 'private',
+        'local.path' => '',
 	// DB connection configurations
 	'db.name' => 'speedelo',
 	'db.connectionString' => 'mysql:host=localhost;dbname=speedelo',
