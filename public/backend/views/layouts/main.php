@@ -20,11 +20,11 @@
 </head>
 
 <body>
-fglkhjfglkjhkfg
+
 <div class="container" id="page">
 	<?php $this->widget('bootstrap.widgets.TbNavbar', array(
 	'type' => 'inverse', // null or 'inverse'
-	'brand' => 'Project name',
+	'brand' => 'Speedelo',
 	'brandUrl' => '#',
 	'collapse' => true, // requires bootstrap-responsive.css
 	'items' => array(
@@ -32,15 +32,36 @@ fglkhjfglkjhkfg
 			'class' => 'bootstrap.widgets.TbMenu',
 			'items' => array(
 				array('label' => 'Home', 'url' => array('/site/index')),
-				array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-				array('label' => 'Contact', 'url' => array('/site/contact')),
-				array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+				/*array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+				array('label' => 'Contact', 'url' => array('/site/contact')),*/
+				array('label' => 'Login', 'url' => array('/user/auth/login'), 'visible' => Yii::app()->user->isGuest),
 				array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
 			),
 		),
-		'<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
-		(!Yii::app()->user->isGuest) ? '<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>' : '',
-		array(
+		/*'<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',*/
+		(!Yii::app()->user->isGuest) ? ''
+                                                      .'<div class="pull-right">'
+                                                            .'<p class="navbar-text pull-right">Logged in as <a href="#">'.Yii::app()->user->name.'</a></p>'
+
+                                                                                            .'<ul class="nav ">'
+                                                                                                    .'<li class="divider-vertical"></li>'
+                                                                                                    .'<li class="dropdown">'
+                                                                                                            .'<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-envelope"></i></a>'
+                                                                                                            .'<ul class="dropdown-menu">'
+                                                                                                                    .'<li>'
+                                                                                                                            .'<div class="dropdown-content dropdown-content-wide">'
+                                                                                                                                     .$this->widget('application.modules.user.components.YumUserMenu',array(),true)
+                                                                                                                            .'</div>'
+                                                                                                                    .'</li>'
+                                                                                                            .'</ul>'
+                                                                                                    .'</li>'
+
+                                                                                            .'</ul>'
+                                                                                        .'</div>'
+                 : '',
+            
+            
+                /*array(
 			'class' => 'bootstrap.widgets.TbMenu',
 			'htmlOptions' => array('class' => 'pull-right'),
 			'items' => array(
@@ -54,7 +75,7 @@ fglkhjfglkjhkfg
 					array('label' => 'Separated link', 'url' => '#'),
 				)),
 			),
-		),
+		),*/
 	),
 )); ?>
 	<!-- mainmenu -->
@@ -68,9 +89,9 @@ fglkhjfglkjhkfg
 		<?php echo $content; ?>
 		<hr/>
 		<div id="footer">
-			Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-			All Rights Reserved.<br/>
-			<?php echo Yii::powered(); ?>
+			Copyright &copy; <?php echo date('Y'); ?> Speedelo.<br/>
+			Todos los derechos resevados.<br/>
+			
 		</div>
 		<!-- footer -->
 	</div>

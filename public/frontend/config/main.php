@@ -34,7 +34,7 @@ return CMap::mergeArray(
 		'params' => $params,
 		// preload components required before running applications
 		// @see http://www.yiiframework.com/doc/api/1.1/CModule#preload-detail
-		'preload' => array('log'),
+                'preload' => array('bootstrap', 'log'),
 		// @see http://www.yiiframework.com/doc/api/1.1/CApplication#language-detail
 		'language' => 'es',
 		// uncomment if a theme is used
@@ -65,6 +65,13 @@ return CMap::mergeArray(
 		/* we need to uncomment the following to make use of "api" REST controllers */
 		'modules' => array(
 			"api",
+                        'gii' => array(
+				'class' => 'system.gii.GiiModule',
+				'password' => 'clevertech',
+				'generatorPaths' => array(
+					'bootstrap.gii'
+				)
+			),
 			'user' => array(
                             //'class' => 'common.modules.user.UserModule',
                             //'path' => $params['local.path'].'common/modules/user',
@@ -114,6 +121,11 @@ return CMap::mergeArray(
 
 		),
 		'components' => array(
+                        			/* load bootstrap components */
+			'bootstrap' => array(
+				'class' => 'common.extensions.bootstrap.components.Bootstrap',
+				'responsiveCss' => true,
+			),
 			'errorHandler' => array(
 				// @see http://www.yiiframework.com/doc/api/1.1/CErrorHandler#errorAction-detail
 				'errorAction'=>'site/error'

@@ -1,5 +1,6 @@
 <?php
-	/*Yii::app()->clientscript
+	        $baseurl = Yii::app()->request->baseUrl;
+                /*Yii::app()->clientscript
 		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap.css' )
 		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap-responsive.css' )*/
 ?>
@@ -13,11 +14,11 @@
 
 		
         <!-- FAV AND TOUCH ICONS -->
-            <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
-            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo Yii::app()->request->baseUrl; ?>images/apple-touch-icon-144-precomposed.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo Yii::app()->request->baseUrl; ?>images/apple-touch-icon-114-precomposed.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo Yii::app()->request->baseUrl; ?>images/apple-touch-icon-72-precomposed.png" />
-            <link rel="apple-touch-icon-precomposed" href="<?php echo Yii::app()->request->baseUrl; ?>images/apple-touch-icon-57-precomposed.png" />
+            <link rel="shortcut icon" href="<?=$baseurl?>/images/favicon.ico">
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?=$baseurl?>images/apple-touch-icon-144-precomposed.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?=$baseurl?>images/apple-touch-icon-114-precomposed.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?=$baseurl?>images/apple-touch-icon-72-precomposed.png" />
+            <link rel="apple-touch-icon-precomposed" href="<?=$baseurl?>images/apple-touch-icon-57-precomposed.png" />
 		
             	
 
@@ -40,32 +41,31 @@
   
    
    		<!-- PLUGIN CSS -->
-       
-            <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/bootstrap/css/bootstrap.min.css">
-            <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/bootstrap/css/bootstrap-responsive.min.css">
-            <!-- <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" type="text/css" />-->
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/css/icons.css" rel="stylesheet" type="text/css" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/css/supr-theme/jquery.ui.supr.css" rel="stylesheet" type="text/css"/>
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/qtip/jquery.qtip.css" rel="stylesheet" type="text/css" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/jpages/jPages.css" rel="stylesheet" type="text/css" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/prettify/prettify.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/inputlimiter/jquery.inputlimiter.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/ibutton/jquery.ibutton.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/uniform/uniform.default.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/color-picker/color-picker.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/select/select2.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/validate/validate.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/pnotify/jquery.pnotify.default.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/pretty-photo/prettyPhoto.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/smartWizzard/smart_wizard.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/dataTables/jquery.dataTables.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/elfinder/elfinder.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/plugins/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css" type="text/css" rel="stylesheet" />
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/tplugins/search/tipuesearch.css" type="text/css" rel="stylesheet" />
-            <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/css/nivo-slider.css">
-            <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/nivo-themes/bar/bar.css" type="text/css" media="screen" />
-            <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/nivo-themes/light/light.css" type="text/css" media="screen" />
+
+            <link rel="stylesheet" href="<?=$baseurl?>/app/spdlo/bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" href="<?=$baseurl?>/app/spdlo/bootstrap/css/bootstrap-responsive.min.css">
+            <!-- <link href="<?=$baseurl?>/app/spdlo/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" type="text/css" />-->
+            <link href="<?=$baseurl?>/app/spdlo/css/icons.css" rel="stylesheet" type="text/css" />
+            <link href="<?=$baseurl?>/app/spdlo/css/supr-theme/jquery.ui.supr.css" rel="stylesheet" type="text/css"/>
+            <link href="<?=$baseurl?>/app/spdlo/plugins/qtip/jquery.qtip.css" rel="stylesheet" type="text/css" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/jpages/jPages.css" rel="stylesheet" type="text/css" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/prettify/prettify.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/inputlimiter/jquery.inputlimiter.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/ibutton/jquery.ibutton.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/uniform/uniform.default.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/color-picker/color-picker.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/select/select2.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/validate/validate.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/pnotify/jquery.pnotify.default.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/pretty-photo/prettyPhoto.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/smartWizzard/smart_wizard.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/dataTables/jquery.dataTables.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/elfinder/elfinder.css" type="text/css" rel="stylesheet" />
+            <link href="<?=$baseurl?>/app/spdlo/plugins/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css" type="text/css" rel="stylesheet" />
+            <link rel="stylesheet" href="<?=$baseurl?>/app/spdlo/css/nivo-slider.css">
+            <link rel="stylesheet" href="<?=$baseurl?>/app/spdlo/nivo-themes/bar/bar.css" type="text/css" media="screen" />
+            <link rel="stylesheet" href="<?=$baseurl?>/app/spdlo/nivo-themes/light/light.css" type="text/css" media="screen" />
 
    
             <!-- HTML5 SHIM, for IE6-8 support of HTML5 elements -->
@@ -74,9 +74,9 @@
             <![endif]-->
  
             <!-- FRONTEND STYLES -->
-            <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/css/style.css">
+            <link rel="stylesheet" href="<?=$baseurl?>/app/spdlo/css/style.css">
             <!-- BACKEND STYLES -->
-            <link href="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/css/backend.css" rel="stylesheet" type="text/css"  media="screen" /> 
+            <link href="<?=$baseurl?>/app/spdlo/css/backend.css" rel="stylesheet" type="text/css"  media="screen" /> 
 		
 		
 		
@@ -85,15 +85,11 @@
             ================================================== -->
             
             
-            <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/config.js"></script>
+            <script src="<?=$baseurl?>/app/spdlo/js/config.js"></script>
            
-            <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/jquery-1.8.1.min.js"></script>
-            <script src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/bootstrap/js/bootstrap.min.js"></script>
+           <!--<script src="<?=$baseurl?>/app/spdlo/js/jquery-1.8.1.min.js"></script>
+            <script src="<?=$baseurl?>/app/spdlo/bootstrap/js/bootstrap.min.js"></script>-->
       
-    
-            <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/js/main.js"></script>
-                
-                
                 <meta charset="utf-8">
 		<title><?=h($this->pageTitle)?></title>
 		<meta name="description" content="Page description here">
@@ -112,7 +108,7 @@
 		<div class="header-shadow"></div>
 
 		<!--<div class="container-fluid">-->
-        <div class="container">
+                <div class="container">
 
 			<div class="row-fluid print-show">
 				<div class="span12">
@@ -121,12 +117,8 @@
 			</div>
 
 			<div class="row-fluid print-hide">
-				<div class="span4">
-					<div class="header-action">
-						<!--<span class="label label-info">Free shipping on all orders over € 20,-</span>-->
-					</div>
-				</div>
-				<div class="span8">
+				
+				<div class="span12">
 					<div class="navbar pull-right header-nav">
 						<ul class="nav">
 							<li class="dropdown">
@@ -145,23 +137,14 @@
 							
 							<? } else { ?>
 								
-   								<a class="dropdown-toggle" data-toggle="dropdown" href="#"><?=Yii::t('user', 'account')?></a>
-                                                                <ul class="dropdown-menu">
-                                                                        <li>
-                                                                              <div class="dropdown-content">
-											<br>
-                                                                                            <?php $this->widget('application.modules.user.components.YumUserMenu'); ?>
-                                                                                        <br>
-										</div>
-                                                                        </li>
-                                                                </ul>
+   								<a href="/user/auth/logout"><?=Yii::t('logout', 'Logout')?></a>
+                                                                
 								
 
 							<? } ?>
 							
 							</li>
-							<li><a href="#">orders</a></li>
-							<li><a href="#">customer service</a></li>
+							
 						</ul>
 					</div>
 				</div>
@@ -169,30 +152,16 @@
 
 			<div class="row-fluid print-hide">
 				<div class="span3">
-					<img src="<?php echo Yii::app()->request->baseUrl; ?>/app/spdlo/img/logo.png" alt="Logo">
-				</div>
+                                    <div id="logo">
+                                    
+					<img src="<?=$baseurl?>/app/spdlo/img/logo.png" alt="Logo">
+                                    </div>
+                                
+                                </div>
 				
-                <div class="span5">
+               			 <div class="span9">
                 
-                </div>
-                
-				<div class="span4">
-					
-                  <div class="row-fluid print-hide header-toolbox">
-                    
-                        <div class="span12">
-							<form class="form-search header-search">
-								<div class="input-append">
-									<input class="input-large search-query" type="text" placeholder="Search all products...">
-									<button class="btn" type="submit">search</button>
-								</div>
-							</form>
-						</div>
-                    
-                    </div>
-                    
-						
-				 </div>
+                		</div>
                     
                     
 		    </div>
@@ -209,64 +178,38 @@
                                                                                             'activeCssClass'	=> 'active',
                                                                                             'items'=>array(
                                                                                                     array('label'=>'Home', 'url'=>array('/site/index')),
-                                                                                                    array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                                                                                                    array('label'=>'Contact', 'url'=>array('/site/contact')),
-                                                                                                    array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                                                                                                    array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                                                                                                   /* array('label'=>'Login', 'url'=>array('/user/auth/login'), 'visible'=>Yii::app()->user->isGuest),
+                                                                                                    array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/user/auth/logout'), 'visible'=>!Yii::app()->user->isGuest)*/
+                                                                               
                                                                                             ),
                                                                                     )); ?>
 
-                                                                                    <?php if (!Yii::app()->user->isGuest) : ?>
-                                                                                    <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+                                                                                   <?php if (!Yii::app()->user->isGuest) : ?>
+                                                                                   
+                                                                                        <div class="pull-right">
+
+                                                                                             <p class="navbar-text pull-right">Logged in as <a href="#"><?=Yii::app()->user->name?></a></p>
+
+                                                                                                        <ul class="nav ">
+                                                                                                    <li class="divider-vertical"></li>
+                                                                                                    <li class="dropdown">
+                                                                                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-envelope"></i></a>
+                                                                                                            <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                                                                                                            <div class="dropdown-content dropdown-content-wide">
+                                                                                                                                     <?php $this->widget('application.modules.user.components.YumUserMenu'); ?>
+                                                                                                                            </div>
+                                                                                                                    </li>
+                                                                                                            </ul>
+                                                                                                    </li>
+
+                                                                                            </ul>
+
+
+                                                                                        </div>     
+                                                                                    
                                                                                     <?php endif; ?>
-									<ul class="nav pull-right">
-										<li class="divider-vertical"></li>
-										<li class="dropdown">
-											<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-question-sign"></i></a>
-											<ul class="dropdown-menu">
-												<li>
-													<div class="dropdown-content dropdown-content-wide">
-														<form class="form-search">
-															<div class="input-append">
-																<input type="text" class="search-query" placeholder="Type your question...">
-																<button class="btn">ok</button>
-															</div>
-														</form> 
-													</div>
-												</li>
-											</ul>
-										</li>
-										<li class="dropdown">
-											<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-envelope"></i></a>
-											<ul class="dropdown-menu">
-												<li>
-													<div class="dropdown-content">
-														<address>
-															<strong>CompanyName</strong><br>
-															Address 123<br>
-															Zipcode, State and City
-														</address>
-													</div>
-												</li>
-												<li class="divider"></li>
-												<li>
-													<div class="dropdown-content">
-														<strong>Phone</strong>: 012-345 67 89<br>
-													</div>
-												</li>
-												<li><a href="#"><strong>E-mail</strong>: info@example.com</a></li>
-											</ul>
-										</li>
-										<li class="dropdown">
-											<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-shopping-cart"></i></a>
-											<ul class="dropdown-menu">
-												<li><a href="#"><span class="pull-left"><small>5x</small> Product A</span> &nbsp; <small class="pull-right label label-info">&euro; 123,-</small></a></li>
-												<li><a href="#"><span class="pull-left"><small>1x</small> Product B</span> &nbsp; <small class="pull-right label label-info">&euro; 139,-</small></a></li>
-												<li class="divider"></li>
-												<li><a href="#">Show all items in shopping cart <i class="icon-chevron-right"></i></a></li>
-											</ul>
-										</li>
-									</ul>
+									
 								</div>
 							</div>
 						</div>
@@ -275,7 +218,7 @@
 			</div>
 
 				
-		<?php echo $content ?>
+		<?=$content?>
 	
             
             
