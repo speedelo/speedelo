@@ -1,15 +1,12 @@
 <?php
-/* @var $this OpcionController */
-/* @var $model Opcion */
-
 $this->breadcrumbs=array(
 	'Opcions'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List Opcion', 'url'=>array('index')),
-	array('label'=>'Manage Opcion', 'url'=>array('admin')),
+	array('label'=>'List Opcion','url'=>array('index')),
+	array('label'=>'Manage Opcion','url'=>array('admin')),
 );
 ?>
 

@@ -15,7 +15,6 @@ class ProductoController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -49,10 +48,23 @@ class ProductoController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
+        public function loadOpcionesByProdId($id){
+           $dataProvider=new CActiveDataProvider('Opcion', array(
+            'criteria'=>array(
+                'condition'=>'producto_id = '.$id
+            ),
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
+        ));
+            return $dataProvider;
+        }
+               
 	public function actionView($id)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+                        'lista_opciones'=>$this->loadOpcionesByProdId($id) //carga de la tabla de opciones a la vista segun id del prod 
 		));
 	}
 
@@ -71,7 +83,7 @@ class ProductoController extends Controller
 		{
 			$model->attributes=$_POST['Producto'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_producto));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +107,7 @@ class ProductoController extends Controller
 		{
 			$model->attributes=$_POST['Producto'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_producto));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -110,11 +122,17 @@ class ProductoController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**

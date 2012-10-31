@@ -1,91 +1,42 @@
-<?php
-/* @var $this ProductoController */
-/* @var $model Producto */
-/* @var $form CActiveForm */
-?>
-
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<div class="well">
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'producto-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-       
-	<div class="row">
-		<?php //echo $form->labelEx($model,'id_proveedor'); ?>
-		<?php echo $form->hiddenField($model,'id_proveedor'); ?>
-		<?php echo $form->error($model,'id_proveedor'); ?>
-	</div>
 
-	<div class="row">
-		<?php //echo $form->labelEx($model,'id_categoria'); ?>
-		<?php echo $form->hiddenField($model,'id_categoria'); ?>
-		<?php echo $form->error($model,'id_categoria'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'comercio_id',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'nombre_producto'); ?>
-		<?php echo $form->textField($model,'nombre_producto',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'nombre_producto'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'categoria_id',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'descripcion_producto'); ?>
-		<?php echo $form->textArea($model,'descripcion_producto',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'descripcion_producto'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'nombre',array('class'=>'span5','maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'tiempo_minimo_producto'); ?>
-		<?php echo $form->textField($model,'tiempo_minimo_producto'); ?>
-		<?php echo $form->error($model,'tiempo_minimo_producto'); ?>
-	</div>
+	<?php echo $form->textAreaRow($model,'descripcion',array('class'=>'span5','maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'precio_producto'); ?>
-		<?php echo $form->textField($model,'precio_producto'); ?>
-		<?php echo $form->error($model,'precio_producto'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'tiempo',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'imagen_producto'); ?>
-		<?php echo $form->fileField($model,'imagen_producto',array('size'=>20,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'imagen_producto'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'precio',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php //echo $form->labelEx($model,'valoracion_producto'); ?>
-		<?php echo $form->hiddenField($model,'valoracion_producto'); ?>
-		<?php echo $form->error($model,'valoracion_producto'); ?>
-	</div>
+	<?php echo $form->fileFieldRow($model,'imagen',array('class'=>'span5','maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php //echo $form->labelEx($model,'estado_producto'); ?>
-		<?php echo $form->hiddenField($model,'estado_producto'); ?>
-		<?php echo $form->error($model,'estado_producto'); ?>
-	</div>
+	<?php echo $form->hiddenField($model,'valoracion',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php //echo $form->labelEx($model,'fecha_creacion'); ?>
-		<?php echo $form->hiddenField($model,'fecha_creacion'); ?>
-		<?php echo $form->error($model,'fecha_creacion'); ?>
-	</div>
+	<?php echo $form->hiddenField($model,'estado',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php //echo $form->labelEx($model,'fecha_modificacion'); ?>
-		<?php echo $form->hiddenField($model,'fecha_modificacion'); ?>
-		<?php echo $form->error($model,'fecha_modificacion'); ?>
-	</div>
+	<?php echo $form->hiddenField($model,'fechacreacion',array('class'=>'span5')); ?>
 
-        
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	<?php echo $form->hiddenField($model,'fechamodificacion',array('class'=>'span5')); ?>
+
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>$model->isNewRecord ? 'Create' : 'Save',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->
+</div>

@@ -4,14 +4,17 @@
  * This is the model class for table "opcion".
  *
  * The followings are the available columns in table 'opcion':
- * @property integer $id_opcion
- * @property integer $id_producto
- * @property string $nombre_opcion
- * @property string $descripcion_opcion
+ * @property integer $id
+ * @property integer $producto_id
+ * @property string $nombre
+ * @property string $descripcion
  * @property integer $stock
- * @property integer $estado_opcion
- * @property string $fecha_creacion
- * @property string $fecha_modificacion
+ * @property integer $estado
+ * @property string $fechacreacion
+ * @property string $fechamodificacion
+ *
+ * The followings are the available model relations:
+ * @property Producto $producto
  */
 class Opcion extends CActiveRecord
 {
@@ -41,14 +44,14 @@ class Opcion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_producto, nombre_opcion, stock, fecha_creacion', 'required'),
-			array('id_producto, stock, estado_opcion', 'numerical', 'integerOnly'=>true),
-			array('nombre_opcion', 'length', 'max'=>200),
-			array('descripcion_opcion', 'length', 'max'=>250),
-			array('fecha_modificacion', 'safe'),
+			array('producto_id, nombre, stock, fechacreacion', 'required'),
+			array('producto_id, stock, estado', 'numerical', 'integerOnly'=>true),
+			array('nombre', 'length', 'max'=>200),
+			array('descripcion', 'length', 'max'=>250),
+			array('fechamodificacion', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id_opcion, id_producto, nombre_opcion, descripcion_opcion, stock, estado_opcion, fecha_creacion, fecha_modificacion', 'safe', 'on'=>'search'),
+			array('id, producto_id, nombre, descripcion, stock, estado, fechacreacion, fechamodificacion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,6 +63,7 @@ class Opcion extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'producto' => array(self::BELONGS_TO, 'Producto', 'producto_id'),
 		);
 	}
 
@@ -69,14 +73,14 @@ class Opcion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_opcion' => 'Id Opcion',
-			'id_producto' => 'Id Producto',
-			'nombre_opcion' => 'Nombre Opcion',
-			'descripcion_opcion' => 'Descripcion Opcion',
+			'id' => 'ID',
+			'producto_id' => 'Producto',
+			'nombre' => 'Nombre',
+			'descripcion' => 'Descripcion',
 			'stock' => 'Stock',
-			'estado_opcion' => 'Estado Opcion',
-			'fecha_creacion' => 'Fecha Creacion',
-			'fecha_modificacion' => 'Fecha Modificacion',
+			'estado' => 'Estado',
+			'fechacreacion' => 'Fechacreacion',
+			'fechamodificacion' => 'Fechamodificacion',
 		);
 	}
 
@@ -91,14 +95,14 @@ class Opcion extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_opcion',$this->id_opcion);
-		$criteria->compare('id_producto',$this->id_producto);
-		$criteria->compare('nombre_opcion',$this->nombre_opcion,true);
-		$criteria->compare('descripcion_opcion',$this->descripcion_opcion,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('producto_id',$this->producto_id);
+		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('stock',$this->stock);
-		$criteria->compare('estado_opcion',$this->estado_opcion);
-		$criteria->compare('fecha_creacion',$this->fecha_creacion,true);
-		$criteria->compare('fecha_modificacion',$this->fecha_modificacion,true);
+		$criteria->compare('estado',$this->estado);
+		$criteria->compare('fechacreacion',$this->fechacreacion,true);
+		$criteria->compare('fechamodificacion',$this->fechamodificacion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

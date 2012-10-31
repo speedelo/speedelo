@@ -1,60 +1,29 @@
-<?php
-/* @var $this OpcionController */
-/* @var $model Opcion */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'id_opcion'); ?>
-		<?php echo $form->textField($model,'id_opcion'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'id',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'id_producto'); ?>
-		<?php echo $form->textField($model,'id_producto'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'producto_id',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'nombre_opcion'); ?>
-		<?php echo $form->textField($model,'nombre_opcion',array('size'=>60,'maxlength'=>200)); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'nombre',array('class'=>'span5','maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'descripcion_opcion'); ?>
-		<?php echo $form->textField($model,'descripcion_opcion',array('size'=>60,'maxlength'=>250)); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'descripcion',array('class'=>'span5','maxlength'=>250)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'stock'); ?>
-		<?php echo $form->textField($model,'stock'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'stock',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'estado_opcion'); ?>
-		<?php echo $form->textField($model,'estado_opcion'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'estado',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'fecha_creacion'); ?>
-		<?php echo $form->textField($model,'fecha_creacion'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'fechacreacion',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'fecha_modificacion'); ?>
-		<?php echo $form->textField($model,'fecha_modificacion'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'fechamodificacion',array('class'=>'span5')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->
