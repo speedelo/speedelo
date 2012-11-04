@@ -5,20 +5,23 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_comercio')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id_comercio), array('view', 'id'=>$data->id_comercio)); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::link( array('view', 'id'=>$data->id)); ?>
+<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('nombrecomercio')); ?>:</b>
+	<?php echo CHtml::encode($data->nombrecomercio); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre_comercio')); ?>:</b>
-	<?php echo CHtml::encode($data->nombre_comercio); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('idrubro')); ?>:</b>
+	<?php echo CHtml::encode($data->idrubro); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('rubro_id')); ?>:</b>
-	<?php echo CHtml::encode($data->rubro_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('estadocomercio')); ?>:</b>
+	<?php echo CHtml::encode($data->estadocomercio); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estado')); ?>:</b>
-	<?php echo CHtml::encode($data->estado); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('starcomercio')); ?>:</b>
+	<?php echo CHtml::encode($data->starcomercio); ?>
 	<br />
 
 

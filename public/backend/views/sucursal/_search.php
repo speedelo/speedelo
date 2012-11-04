@@ -12,38 +12,53 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_sucursal'); ?>
-		<?php echo $form->textField($model,'id_sucursal'); ?>
+		<?php echo $form->label($model,'id'); ?>
+		<?php echo $form->textField($model,'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'nombre_sucursal'); ?>
-		<?php echo $form->textField($model,'nombre_sucursal',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'idcomercio'); ?>
+		<?php echo $form->textField($model,'idcomercio'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'descripcion_sucursal'); ?>
-		<?php echo $form->textField($model,'descripcion_sucursal',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'nombresucursal'); ?>
+		<?php echo $form->textField($model,'nombresucursal',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'direccion_sucursal'); ?>
-		<?php echo $form->textField($model,'direccion_sucursal',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'descripcionsucursal'); ?>
+		<?php echo $form->textField($model,'descripcionsucursal',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'telefono_sucursal'); ?>
-		<?php echo $form->textField($model,'telefono_sucursal',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'telefonosucursal'); ?>
+		<?php echo $form->textField($model,'telefonosucursal',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'mail_sucursal'); ?>
-		<?php echo $form->textField($model,'mail_sucursal',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'correosucursal'); ?>
+		<?php echo $form->textField($model,'correosucursal',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_comercio'); ?>
-		<?php echo $form->textField($model,'id_comercio'); ?>
+		<?php echo $form->label($model,'direccionsucursal'); ?>
+		<?php echo $form->textField($model,'direccionsucursal',array('size'=>60,'maxlength'=>200)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'idcomuna'); ?>
+		<?php echo $form->textField($model,'idcomuna'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'estadosucursal'); ?>
+		<?php echo $form->textField($model,'estadosucursal'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'starcomercio'); ?>
+		<?php echo $form->textField($model,'starcomercio'); ?>
 	</div>
 
 	<div class="row buttons">

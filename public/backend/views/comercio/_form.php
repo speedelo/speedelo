@@ -4,42 +4,34 @@
 /* @var $form CActiveForm */
 ?>
 
-<div id="content-form">
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'comercio-form',
-	'enableAjaxValidation'=>false,
-)); ?>
+<div class="well">
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+	'id'=>'producto-form',
+	'enableAjaxValidation'=>false,   
+ ));
 
 
+?>
+
+	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'nombre_comercio'); ?>
-		<?php echo $form->textField($model,'nombre_comercio',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'nombre_comercio'); ?>
+	<?php echo $form->textFieldRow($model,'nombrecomercio',array('class'=>'span5','placeholder'=>'Nombre Comercio')).'<br>'; ?>
+
+    	<?php echo $form->dropDownList($model,'idrubro',$this->getNameRubro(),array('class'=>'span5','prompt'=>'Rubro..'));?>
+
+	<?php echo $form->hiddenField($model,'estadocomercio',array('class'=>'span5')); ?>
+
+	<?php echo $form->hiddenField($model,'starcomercio',array('class'=>'span5')); ?>
+	
+        <div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>$model->isNewRecord ? 'Crear' : 'Save',
+		)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'rubro_id'); ?>
-		<?php echo $form->textField($model,'rubro_id'); ?>
-		<?php echo $form->error($model,'rubro_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'estado'); ?>
-		<?php echo $form->textField($model,'estado'); ?>
-		<?php echo $form->error($model,'estado'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
- 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->
-
 </div>

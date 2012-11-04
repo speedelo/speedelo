@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear<span class="color"> Sucursal</span></h1>
+<h1>Create Sucursal</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

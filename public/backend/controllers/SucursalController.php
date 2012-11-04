@@ -6,8 +6,8 @@ class SucursalController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/main';
-
+	public $layout='//layouts/column2';
+        public $idcomercio = 'CHtml::encode($data->id)';
 	/**
 	 * @return array action filters
 	 */
@@ -71,7 +71,7 @@ class SucursalController extends Controller
 		{
 			$model->attributes=$_POST['Sucursal'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_sucursal));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class SucursalController extends Controller
 		{
 			$model->attributes=$_POST['Sucursal'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_sucursal));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(

@@ -6,7 +6,7 @@ class RubroController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/main';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -71,7 +71,7 @@ class RubroController extends Controller
 		{
 			$model->attributes=$_POST['Rubro'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_rubro));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class RubroController extends Controller
 		{
 			$model->attributes=$_POST['Rubro'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_rubro));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(

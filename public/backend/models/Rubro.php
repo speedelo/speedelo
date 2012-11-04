@@ -4,9 +4,13 @@
  * This is the model class for table "rubro".
  *
  * The followings are the available columns in table 'rubro':
- * @property integer $id_rubro
- * @property string $nombre_rubro
- * @property integer $id_comercio
+ * @property integer $id
+ * @property string $nombrerubro
+ * @property integer $estadorubro
+ * @property string $starrubro
+ *
+ * The followings are the available model relations:
+ * @property Comercio[] $comercios
  */
 class Rubro extends CActiveRecord
 {
@@ -36,12 +40,12 @@ class Rubro extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre_rubro, id_comercio', 'required'),
-			array('id_comercio', 'numerical', 'integerOnly'=>true),
-			array('nombre_rubro', 'length', 'max'=>200),
+			array('nombrerubro, starrubro', 'required'),
+			array('estadorubro', 'numerical', 'integerOnly'=>true),
+			array('nombrerubro', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id_rubro, nombre_rubro, id_comercio', 'safe', 'on'=>'search'),
+			array('id, nombrerubro, estadorubro, starrubro', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,6 +57,7 @@ class Rubro extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'comercios' => array(self::HAS_MANY, 'Comercio', 'idrubro'),
 		);
 	}
 
@@ -62,9 +67,10 @@ class Rubro extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_rubro' => 'Id Rubro',
-			'nombre_rubro' => 'Nombre Rubro',
-			'id_comercio' => 'Id Comercio',
+			'id' => 'ID',
+			'nombrerubro' => 'Nombrerubro',
+			'estadorubro' => 'Estadorubro',
+			'starrubro' => 'Starrubro',
 		);
 	}
 
@@ -79,9 +85,10 @@ class Rubro extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_rubro',$this->id_rubro);
-		$criteria->compare('nombre_rubro',$this->nombre_rubro,true);
-		$criteria->compare('id_comercio',$this->id_comercio);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('nombrerubro',$this->nombrerubro,true);
+		$criteria->compare('estadorubro',$this->estadorubro);
+		$criteria->compare('starrubro',$this->starrubro,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

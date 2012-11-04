@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear <span class="color"> Rubro</span></h1>
+<h1>Create Rubro</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

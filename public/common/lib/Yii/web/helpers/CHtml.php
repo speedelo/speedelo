@@ -766,7 +766,7 @@ class CHtml
 		if(!isset($htmlOptions['id']))
 			$htmlOptions['id']=self::getIdByName($name);
 		else if($htmlOptions['id']===false)
-			unset($htmlOptions['id']);
+            			unset($htmlOptions['id']);
 		self::clientChange('change',$htmlOptions);
 		$options="\n".self::listOptions($select,$data,$htmlOptions);
 		return self::tag('select',$htmlOptions,$options);
@@ -1126,7 +1126,7 @@ EOD;
 	protected static function inputField($type,$name,$value,$htmlOptions)
 	{
 		$htmlOptions['type']=$type;
-		$htmlOptions['value']=$value;
+		$htmlOptions['placeholder']=$value;
 		$htmlOptions['name']=$name;
 		if(!isset($htmlOptions['id']))
 			$htmlOptions['id']=self::getIdByName($name);

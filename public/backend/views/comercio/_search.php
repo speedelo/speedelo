@@ -12,23 +12,28 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id_comercio'); ?>
-		<?php echo $form->textField($model,'id_comercio'); ?>
+		<?php echo $form->label($model,'id'); ?>
+		<?php echo $form->textField($model,'id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'nombre_comercio'); ?>
-		<?php echo $form->textField($model,'nombre_comercio',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'nombrecomercio'); ?>
+		<?php echo $form->textField($model,'nombrecomercio',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'rubro_id'); ?>
-		<?php echo $form->textField($model,'rubro_id'); ?>
+		<?php echo $form->label($model,'idrubro'); ?>
+		<?php echo $form->textField($model,'idrubro'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'estado'); ?>
-		<?php echo $form->textField($model,'estado'); ?>
+		<?php echo $form->label($model,'estadocomercio'); ?>
+		<?php echo $form->textField($model,'estadocomercio'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'starcomercio'); ?>
+		<?php echo $form->textField($model,'starcomercio'); ?>
 	</div>
 
 	<div class="row buttons">
