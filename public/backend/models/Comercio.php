@@ -4,10 +4,15 @@
  * This is the model class for table "comercio".
  *
  * The followings are the available columns in table 'comercio':
- * @property integer $id_comercio
- * @property string $nombre_comercio
- * @property integer $rubro_id
- * @property integer $estado
+ * @property integer $id
+ * @property string $nombrecomercio
+ * @property integer $idrubro
+ * @property integer $estadocomercio
+ * @property string $starcomercio
+ *
+ * The followings are the available model relations:
+ * @property Rubro $idrubro0
+ * @property Sucursal[] $sucursals
  */
 class Comercio extends CActiveRecord
 {
@@ -37,12 +42,13 @@ class Comercio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre_comercio, rubro_id, estado', 'required'),
-			array('rubro_id, estado', 'numerical', 'integerOnly'=>true),
-			array('nombre_comercio', 'length', 'max'=>200),
+			array('nombrecomercio, idrubro', 'required'),
+			array('idrubro, estadocomercio', 'numerical', 'integerOnly'=>true),
+			array('nombrecomercio', 'length', 'max'=>200),
+			array('starcomercio', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id_comercio, nombre_comercio, rubro_id, estado', 'safe', 'on'=>'search'),
+			array('id, nombrecomercio, idrubro, estadocomercio, starcomercio', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,6 +60,8 @@ class Comercio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'idrubro' => array(self::BELONGS_TO, 'Rubro', 'idrubro'),
+			'sucursal' => array(self::HAS_MANY, 'Sucursal', 'idcomercio'),
 		);
 	}
 
@@ -63,10 +71,11 @@ class Comercio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_comercio' => 'Id Comercio',
-			'nombre_comercio' => 'Nombre Comercio',
-			'rubro_id' => 'Rubro',
-			'estado' => 'Estado',
+			'id' => 'ID',
+			'nombrecomercio' => 'Nombrecomercio',
+			'idrubro' => 'Idrubro',
+			'estadocomercio' => 'Estadocomercio',
+			'starcomercio' => 'Starcomercio',
 		);
 	}
 
@@ -81,10 +90,11 @@ class Comercio extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_comercio',$this->id_comercio);
-		$criteria->compare('nombre_comercio',$this->nombre_comercio,true);
-		$criteria->compare('rubro_id',$this->rubro_id);
-		$criteria->compare('estado',$this->estado);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('nombrecomercio',$this->nombrecomercio,true);
+		$criteria->compare('idrubro',$this->idrubro);
+		$criteria->compare('estadocomercio',$this->estadocomercio);
+		$criteria->compare('starcomercio',$this->starcomercio,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

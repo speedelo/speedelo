@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Crear Comercio', 'url'=>array('create')),
+	array('label'=>'Create Comercio', 'url'=>array('create')),
 	array('label'=>'Manage Comercio', 'url'=>array('admin')),
 );
 ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2012 a las 23:52:52
+-- Tiempo de generación: 04-11-2012 a las 20:41:59
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -53,20 +53,27 @@ INSERT INTO `action` (`id`, `title`, `comment`, `subject`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `comercio` (
-  `id_comercio` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_comercio` varchar(200) NOT NULL,
-  `rubro_id` int(11) NOT NULL,
-  `estado` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id_comercio`),
-  KEY `rubro_id` (`rubro_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombrecomercio` varchar(200) NOT NULL,
+  `idrubro` int(11) NOT NULL,
+  `estadocomercio` tinyint(1) NOT NULL DEFAULT '0',
+  `starcomercio` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nombrecomercio` (`nombrecomercio`),
+  UNIQUE KEY `nombrecomercio_2` (`nombrecomercio`),
+  UNIQUE KEY `idrubro` (`idrubro`),
+  KEY `nombrecomercio_3` (`nombrecomercio`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `comercio`
 --
 
-INSERT INTO `comercio` (`id_comercio`, `nombre_comercio`, `rubro_id`, `estado`) VALUES
-(1, 'Computador', 1, 0);
+INSERT INTO `comercio` (`id`, `nombrecomercio`, `idrubro`, `estadocomercio`, `starcomercio`) VALUES
+(4, 'Nombre Comercio', 3, 0, '0000-00-00 00:00:00'),
+(8, 'sdasdad', 4, 0, NULL),
+(11, 'kokoko', 5, 0, '0000-00-00 00:00:00'),
+(18, 'jkjkj', 6, 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -355,18 +362,22 @@ INSERT INTO `role` (`id`, `title`, `description`, `membership_priority`, `price`
 --
 
 CREATE TABLE IF NOT EXISTS `rubro` (
-  `id_rubro` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_rubro` varchar(200) NOT NULL,
-  `id_comercio` int(11) NOT NULL,
-  PRIMARY KEY (`id_rubro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombrerubro` varchar(200) NOT NULL,
+  `estadorubro` tinyint(1) NOT NULL DEFAULT '0',
+  `starrubro` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `rubro`
 --
 
-INSERT INTO `rubro` (`id_rubro`, `nombre_rubro`, `id_comercio`) VALUES
-(1, 'tecnologia', 1);
+INSERT INTO `rubro` (`id`, `nombrerubro`, `estadorubro`, `starrubro`) VALUES
+(3, 'tecnologia', 0, '0000-00-00 00:00:00'),
+(4, 'sxada', 0, '2012-11-04 17:00:53'),
+(5, 'alimento', 0, '0000-00-00 00:00:00'),
+(6, '12', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -375,28 +386,19 @@ INSERT INTO `rubro` (`id_rubro`, `nombre_rubro`, `id_comercio`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sucursal` (
-  `id_sucursal` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_sucursal` varchar(200) NOT NULL,
-  `descripcion_sucursal` varchar(200) NOT NULL,
-  `direccion_sucursal` varchar(200) NOT NULL,
-  `telefono_sucursal` varchar(200) NOT NULL,
-  `mail_sucursal` varchar(200) NOT NULL,
-  `id_comercio` int(11) NOT NULL,
-  PRIMARY KEY (`id_sucursal`),
-  KEY `mail_sucursal` (`mail_sucursal`),
-  KEY `mail_sucursal_2` (`mail_sucursal`),
-  KEY `id_comercio` (`id_comercio`),
-  KEY `id_comercio_2` (`id_comercio`),
-  KEY `id_comercio_3` (`id_comercio`),
-  KEY `id_comercio_4` (`id_comercio`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `sucursal`
---
-
-INSERT INTO `sucursal` (`id_sucursal`, `nombre_sucursal`, `descripcion_sucursal`, `direccion_sucursal`, `telefono_sucursal`, `mail_sucursal`, `id_comercio`) VALUES
-(1, 'computadores', 'tecnologia', 'movista 111', '123123123', 'akjska@kajs.com', 1);
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idcomercio` int(11) NOT NULL,
+  `nombresucursal` varchar(200) NOT NULL,
+  `descripcionsucursal` varchar(200) NOT NULL,
+  `telefonosucursal` varchar(200) NOT NULL,
+  `correosucursal` varchar(200) NOT NULL,
+  `direccionsucursal` varchar(200) NOT NULL,
+  `idcomuna` int(11) NOT NULL,
+  `estadosucursal` tinyint(1) NOT NULL DEFAULT '0',
+  `starsucursal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idcomercio` (`idcomercio`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2894,7 +2896,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `salt`, `activationKey`, `createtime`, `lastvisit`, `lastaction`, `lastpasswordchange`, `superuser`, `status`, `avatar`, `notifyType`) VALUES
-(1, 'admin', '1053453d07b7379469b6c960a2e0e32a4a099c3b7d12972d4ad15b7e3ed4221dbcec598d86c28ef58c5b73016090ecd84a8ce6cde3aac5eb519879156e792bfc', 'xd8CsKCDFV2BfvQGcL8NoH6hSJ7m+ZOYzjXi6Y8gf6OQqLkINHk5+y1XfQqnq36dqrhJ3H3CQD/uOVkgI1/H8w==', '', 1351211123, 1351543366, 0, 0, 1, 1, NULL, 'Instant'),
+(1, 'admin', '1053453d07b7379469b6c960a2e0e32a4a099c3b7d12972d4ad15b7e3ed4221dbcec598d86c28ef58c5b73016090ecd84a8ce6cde3aac5eb519879156e792bfc', 'xd8CsKCDFV2BfvQGcL8NoH6hSJ7m+ZOYzjXi6Y8gf6OQqLkINHk5+y1XfQqnq36dqrhJ3H3CQD/uOVkgI1/H8w==', '', 1351211123, 1351554123, 1351554139, 0, 1, 1, NULL, 'Instant'),
 (2, 'demo', 'b7503b53044bb7f74fcb6f1290bbe3620a6e59b5bc714b7c39b61eaee1b05d22590fc0be14c13cbdb0b7d9d54e60ac3ff9b75338609cb3886bb49c910714c957', 'kqRNqWxMv6fdWzpMOiHeXgyKnUhRlQLjkLLPb9Bwog2E5Vms/TpaRvSuC0QQdOpArAq7lpMnEw8apK8nmjX9DA==', '', 1351211123, 1351213042, 0, 0, 0, 1, NULL, 'Instant');
 
 -- --------------------------------------------------------
@@ -2955,13 +2957,13 @@ INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 -- Filtros para la tabla `comercio`
 --
 ALTER TABLE `comercio`
-  ADD CONSTRAINT `comercio_ibfk_1` FOREIGN KEY (`rubro_id`) REFERENCES `rubro` (`id_rubro`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comercio_ibfk_1` FOREIGN KEY (`idrubro`) REFERENCES `rubro` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
-  ADD CONSTRAINT `sucursal_ibfk_1` FOREIGN KEY (`id_comercio`) REFERENCES `comercio` (`id_comercio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `sucursal_ibfk_1` FOREIGN KEY (`idcomercio`) REFERENCES `comercio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

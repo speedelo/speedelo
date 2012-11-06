@@ -6,7 +6,7 @@ class ComercioController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/main';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -71,7 +71,7 @@ class ComercioController extends Controller
 		{
 			$model->attributes=$_POST['Comercio'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_comercio));
+				$this->redirect(array('sucursal/create','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class ComercioController extends Controller
 		{
 			$model->attributes=$_POST['Comercio'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_comercio));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -168,4 +168,19 @@ class ComercioController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        /** get name rubro **/
+
+        protected function getNameRubro(){
+
+        $ArrayRubro = CHtml::listData(Rubro::model()->findAll(),'id','nombrerubro');
+        return $ArrayRubro;
+
+        }
+        
+        
+        
 }
+
+
+

@@ -4,57 +4,49 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'sucursal-form',
-	'enableAjaxValidation'=>false,
-)); ?>
+<div class="well">
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+	'id'=>'producto-form',
+	'enableAjaxValidation'=>false,   
+ ));
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+
+?>
+
+	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'nombre_sucursal'); ?>
-		<?php echo $form->textField($model,'nombre_sucursal',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'nombre_sucursal'); ?>
-	</div>
+	<?php $form->textFieldRow($model,'idcomercio') ; ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'descripcion_sucursal'); ?>
-		<?php echo $form->textField($model,'descripcion_sucursal',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'descripcion_sucursal'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'nombresucursal',array('class'=>'span5','placeholder'=>'Nombre Sucursal')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'direccion_sucursal'); ?>
-		<?php echo $form->textField($model,'direccion_sucursal',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'direccion_sucursal'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'descripcionsucursal',array('class'=>'span5','placeholder'=>'Descripcion Sucursal')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'telefono_sucursal'); ?>
-		<?php echo $form->textField($model,'telefono_sucursal',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'telefono_sucursal'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'mail_sucursal'); ?>
-		<?php echo $form->textField($model,'mail_sucursal',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'mail_sucursal'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'telefonosucursal',array('class'=>'span5','placeholder'=>'Telefono Sucursal')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_comercio'); ?>
-		<?php echo $form->textField($model,'id_comercio'); ?>
-		<?php echo $form->error($model,'id_comercio'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'correosucursal',array('class'=>'span5','placeholder'=>'Correo Sucursal')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+
+	<?php echo $form->textFieldRow($model,'direccionsucursal',array('class'=>'span5','placeholder'=>'Direccion Sucursal')); ?>
+
+
+	<?php echo $form->textFieldRow($model,'idcomuna',array('class'=>'span5','placeholder'=>'Comuna Sucursal')); ?>
+
+	<?php echo $form->hiddenField($model,'estadosucursal',array('class'=>'span5','placeholder'=>'Estado Sucursal')); ?>
+
+
+	<?php echo $form->hiddenField($model,'starsucursal',array('class'=>'span5')); ?>
+
+        <div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>$model->isNewRecord ? 'Crear' : 'Save',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->
+</div>
