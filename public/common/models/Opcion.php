@@ -44,7 +44,7 @@ class Opcion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('producto_id, nombre, stock, fechacreacion', 'required'),
+			array('producto_id, nombre, stock', 'required'),
 			array('producto_id, stock, estado', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>200),
 			array('descripcion', 'length', 'max'=>250),

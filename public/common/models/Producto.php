@@ -48,9 +48,10 @@ class Producto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('comercio_id, categoria_id, fechacreacion', 'required'),
+			array('comercio_id, categoria_id', 'required'),
 			array('comercio_id, categoria_id, tiempo, precio, valoracion, estado', 'numerical', 'integerOnly'=>true),
-			array('nombre, descripcion, imagen', 'length', 'max'=>200),
+			array('nombre, descripcion', 'length', 'max'=>200),
+                        array('imagen','file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>TRUE, 'on'=>'insert,update'),
 			array('fechamodificacion', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

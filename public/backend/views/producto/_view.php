@@ -1,4 +1,4 @@
-<div class="view">
+<div class="view well">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
@@ -27,12 +27,11 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('precio')); ?>:</b>
 	<?php echo CHtml::encode($data->precio); ?>
 	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('imagen')); ?>:</b>
-	<?php echo CHtml::encode($data->imagen); ?>
+        
+	<b> <?php  echo CHtml::encode($data->getAttributeLabel('imagen')); ?>:</b>
+           <?php echo CHtml::encode($data->imagen); ?>
 	<br />
-
+             
 	<b><?php echo CHtml::encode($data->getAttributeLabel('valoracion')); ?>:</b>
 	<?php echo CHtml::encode($data->valoracion); ?>
 	<br />
@@ -49,6 +48,6 @@
 	<?php echo CHtml::encode($data->fechamodificacion); ?>
 	<br />
 
-	*/ ?>
+	
 
 </div>

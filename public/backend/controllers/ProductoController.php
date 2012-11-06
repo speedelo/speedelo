@@ -72,7 +72,7 @@ class ProductoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+     	public function actionCreate()
 	{
 		$model=new Producto;
 
@@ -82,15 +82,19 @@ class ProductoController extends Controller
 		if(isset($_POST['Producto']))
 		{
 			$model->attributes=$_POST['Producto'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+			$myFile = CUploadedFile::getInstance($model,'imagen'); //aqui
+	                $model->imagen = $myFile;
+                        if($model->save()){
+                                $myFile->saveAs(Yii::app()->basePath.'/images/'.$myFile);
+                                $this->redirect(array('view','id'=>$model->id));
+                        }
+                }
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,                   
 		));
 	}
-
+        
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -99,12 +103,14 @@ class ProductoController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+                $myFile = CUploadedFile::getInstance($model,'imagen'); //aqui
+	        $model->imagen = $myFile;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Producto']))
 		{
+                        $myFile->saveAs(Yii::app()->basePath.'/images/'.$myFile);
 			$model->attributes=$_POST['Producto'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));

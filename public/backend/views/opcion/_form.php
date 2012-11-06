@@ -20,7 +20,7 @@
 
 	<?php echo $form->hiddenField($model,'fechacreacion',array('class'=>'span5')); ?>
 
-	<?php echo $form->hiddenField($model,'fechamodificacion',array('class'=>'span5')); ?>
+	<?php echo $form->hiddenField($model,'fechamodificacion',array('class'=>'span5' , 'value'=>date("Y-m-d H:i:s"))); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

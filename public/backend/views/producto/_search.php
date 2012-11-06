@@ -1,3 +1,4 @@
+<div class="well">
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
@@ -35,3 +36,4 @@
 	</div>
 
 <?php $this->endWidget(); ?>
+</div>
