@@ -1,12 +1,7 @@
-<?php
-/* @var $this SucursalController */
-/* @var $data Sucursal */
-?>
-
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('idcomercio')); ?>:</b>
@@ -42,8 +37,8 @@
 	<?php echo CHtml::encode($data->estadosucursal); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('starcomercio')); ?>:</b>
-	<?php echo CHtml::encode($data->starcomercio); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('starsucursal')); ?>:</b>
+	<?php echo CHtml::encode($data->starsucursal); ?>
 	<br />
 
 	*/ ?>

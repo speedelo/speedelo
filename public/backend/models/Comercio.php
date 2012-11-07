@@ -60,8 +60,8 @@ class Comercio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idrubro' => array(self::BELONGS_TO, 'Rubro', 'idrubro'),
-			'sucursal' => array(self::HAS_MANY, 'Sucursal', 'idcomercio'),
+			'idrubros' => array(self::BELONGS_TO, 'Rubro', 'idrubro'),
+			'sucursals' => array(self::HAS_MANY, 'Sucursal', 'idcomercio'),
 		);
 	}
 
