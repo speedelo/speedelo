@@ -119,6 +119,7 @@ return CMap::mergeArray(
                             //'path' => $params['local.path'].'common/modules/message',
                             'messageTable' => 'message',
                         ),
+                        'shop' => array( 'debug' => 'true'),
 		), 
 		'components' => array(
 			/* load bootstrap components */
