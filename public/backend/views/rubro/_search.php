@@ -1,40 +1,21 @@
-<?php
-/* @var $this RubroController */
-/* @var $model Rubro */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'id',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'nombrerubro'); ?>
-		<?php echo $form->textField($model,'nombrerubro',array('size'=>60,'maxlength'=>200)); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'nombrerubro',array('class'=>'span5','maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'estadorubro'); ?>
-		<?php echo $form->textField($model,'estadorubro'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'estadorubro',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'starrubro'); ?>
-		<?php echo $form->textField($model,'starrubro'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'starrubro',array('class'=>'span5')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

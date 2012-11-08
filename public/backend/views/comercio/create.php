@@ -1,15 +1,12 @@
 <?php
-/* @var $this ComercioController */
-/* @var $model Comercio */
-
 $this->breadcrumbs=array(
 	'Comercios'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List Comercio', 'url'=>array('index')),
-	array('label'=>'Manage Comercio', 'url'=>array('admin')),
+	array('label'=>'List Comercio','url'=>array('index')),
+	array('label'=>'Manage Comercio','url'=>array('admin')),
 );
 ?>
 

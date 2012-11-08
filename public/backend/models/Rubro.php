@@ -40,9 +40,10 @@ class Rubro extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombrerubro, starrubro', 'required'),
+			array('nombrerubro', 'required'),
 			array('estadorubro', 'numerical', 'integerOnly'=>true),
 			array('nombrerubro', 'length', 'max'=>200),
+			array('starrubro', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, nombrerubro, estadorubro, starrubro', 'safe', 'on'=>'search'),

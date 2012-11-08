@@ -15,7 +15,6 @@ class ComercioController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -71,7 +70,7 @@ class ComercioController extends Controller
 		{
 			$model->attributes=$_POST['Comercio'];
 			if($model->save())
-				$this->redirect(array('sucursal/create','id'=>$model->id));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -110,11 +109,17 @@ class ComercioController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -168,19 +173,10 @@ class ComercioController extends Controller
 			Yii::app()->end();
 		}
 	}
-        
-        /** get name rubro **/
+            protected function getNameRubro(){
 
-        protected function getNameRubro(){
+            $ArrayRubro = CHtml::listData(Rubro::model()->findAll(),'id','nombrerubro');
+                return $ArrayRubro;
 
-        $ArrayRubro = CHtml::listData(Rubro::model()->findAll(),'id','nombrerubro');
-        return $ArrayRubro;
-
-        }
-        
-        
-        
 }
-
-
-
+}
